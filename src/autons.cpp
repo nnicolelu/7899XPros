@@ -6,7 +6,7 @@
 /////
 
 // These are out of 127
-const int DRIVE_SPEED = 110;
+const int DRIVE_SPEED = 120;
 const int TURN_SPEED = 90;
 const int SWING_SPEED = 110;
 
@@ -56,8 +56,9 @@ void drive_example() {
   // The second parameter is max speed the robot will drive at
   // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
   // for slew, only enable it when the drive distance is greater than the slew distance + a few inches
-  chassis.pid_drive_set(48_in, DRIVE_SPEED, true);
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
   chassis.pid_wait();
+  chassis.pid_drive_set(48_in, DRIVE_SPEED, true);
 }
 
 ///
@@ -73,9 +74,37 @@ void turn_example() {
 // . . .
 // Make your own autonomous functions here!
 // . . .
-
 void rightHold() {
-  chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
+  stopPiston.set(false);
+  bottomRollers.move(127);
+  topRollers.move(127);
+  topIntake.move(127);
+  chassis.pid_drive_set(34.5_in, DRIVE_SPEED, true);
+  pros::delay(800);
+  chassis.pid_turn_set(40_deg, TURN_SPEED);
+  pros::delay(400);
+  chassis.pid_drive_set(15_in, 110, true);
+  pros::delay(300);
+  matchLoader.set(true);
+  chassis.pid_drive_set(7_in, 1110, true);
+  pros::delay(300);
+  chassis.pid_turn_set(130_deg, TURN_SPEED);
+  pros::delay(500);
+  chassis.pid_drive_set(38_in, DRIVE_SPEED, true);
+  pros::delay(1000);
+  chassis.pid_turn_set(180_deg, DRIVE_SPEED);
+  pros::delay(400);
+  chassis.pid_drive_set(20_in, 80, true);
+  pros::delay(1650);
+  bottomRollers.move(0);
+  chassis.pid_drive_set(-40_in, 100, true);
+  pros::delay(800);
+  stopPiston.set(true);
+  bottomRollers.move(127);
+  topRollers.move(127);
+  topIntake.move(127);
+  pros::delay(1000);
+  chassis.pid_wait();
 }
 
 void leftHold() {
