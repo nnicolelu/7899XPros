@@ -82,28 +82,40 @@ void rightHold() {
   chassis.pid_drive_set(34.5_in, DRIVE_SPEED, true);
   pros::delay(800);
   chassis.pid_turn_set(40_deg, TURN_SPEED);
-  pros::delay(400);
+  pros::delay(300);
   chassis.pid_drive_set(15_in, 110, true);
   pros::delay(300);
   matchLoader.set(true);
   chassis.pid_drive_set(7_in, 1110, true);
   pros::delay(300);
   chassis.pid_turn_set(130_deg, TURN_SPEED);
-  pros::delay(500);
-  chassis.pid_drive_set(38_in, DRIVE_SPEED, true);
-  pros::delay(1000);
+  pros::delay(450);
+  chassis.pid_drive_set(39.5_in, DRIVE_SPEED, true); // going to goal
+  pros::delay(900);
   chassis.pid_turn_set(180_deg, DRIVE_SPEED);
   pros::delay(400);
-  chassis.pid_drive_set(20_in, 80, true);
-  pros::delay(1650);
+  chassis.pid_drive_set(20_in, 80, true); // match loading
+  pros::delay(1500);
   bottomRollers.move(0);
-  chassis.pid_drive_set(-40_in, 100, true);
+  chassis.pid_drive_set(-40_in, 90, true);
   pros::delay(800);
   stopPiston.set(true);
   bottomRollers.move(127);
   topRollers.move(127);
   topIntake.move(127);
-  pros::delay(1000);
+  pros::delay(2000);
+  chassis.pid_drive_set(10_in, DRIVE_SPEED, true);
+  stopPiston.set(false);
+  matchLoader.set(false);
+  pros::delay(500);
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+  pros::delay(500);
+  chassis.pid_drive_set(17_in, DRIVE_SPEED, true);
+  pros::delay(600);
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  pros::delay(500);
+  chassis.pid_drive_set(28_in, DRIVE_SPEED, true);
+  chassis.drive_brake_set(MOTOR_BRAKE_HOLD);
   chassis.pid_wait();
 }
 
