@@ -48,29 +48,6 @@ void default_constants() {
   chassis.pid_angle_behavior_set(ez::shortest);  // Changes the default behavior for turning, this defaults it to the shortest path there
 }
 
-///
-// Drive Example
-///
-void drive_example() {
-  // The first parameter is target inches
-  // The second parameter is max speed the robot will drive at
-  // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
-  // for slew, only enable it when the drive distance is greater than the slew distance + a few inches
-  chassis.pid_turn_set(90_deg, TURN_SPEED);
-  chassis.pid_wait();
-  chassis.pid_drive_set(48_in, DRIVE_SPEED, true);
-}
-
-///
-// Turn Example
-///
-void turn_example() {
-  // The first parameter is the target in degrees
-  // The second parameter is max speed the robot will drive at
-  chassis.pid_turn_set(90_deg, TURN_SPEED);
-  chassis.pid_wait();
-}
-
 // . . .
 // Make your own autonomous functions here!
 // . . .
@@ -125,5 +102,33 @@ void leftHold() {
 
 void leftTwoGoal() {
 
+}
+
+void skills() {
+  stopPiston.set(false);
+  bottomRollers.move(127);
+  topRollers.move(127);
+  topIntake.move(127);  
+  chassis.pid_drive_set(-32, DRIVE_SPEED, true);
+  pros::delay(800);
+  chassis.pid_turn_set(90, TURN_SPEED);
+  pros::delay(400);
+  chassis.pid_drive_set(23, DRIVE_SPEED, true);
+  pros::delay(700);
+  topRollers.move(0);
+  topIntake.move(0);
+  chassis.pid_turn_set(45, TURN_SPEED);
+  pros::delay(400);
+  chassis.pid_drive_set(-15, 80, true);
+  pros::delay(350);
+  bottomRollers.move(-127);
+  topRollers.move(-127);
+  topIntake.move(-127);
+  pros::delay(500);
+  bottomRollers.move(65);
+  topRollers.move(45);
+  topIntake.move(-40);
+  pros::delay(3000);
+  chassis.pid_wait();
 }
 

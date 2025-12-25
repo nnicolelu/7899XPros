@@ -42,6 +42,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
+      {"SKILLS!", skills},
       {"Right hold\n\nRight side autonomous with descore arm hold", rightHold},
       {"Left hold\n\nLeft side autonomous with descore arm hold", leftHold},
       {"Left two goal\n\nLeft side autonomous that gets middle top and top goal", leftTwoGoal},
@@ -72,7 +73,7 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-  // . . .
+                 // Reset gyro position to 0
 }
 
 /**
@@ -92,7 +93,6 @@ void autonomous() {
   chassis.drive_sensor_reset();               // Reset drive sensors to 0
   chassis.odom_xyt_set(0_in, 0_in, 0_deg);    // Set the current position, you can start at a specific position with this
   chassis.drive_brake_set(MOTOR_BRAKE_HOLD);  // Set motors to hold.  This helps autonomous consistency
-
   /*
   Odometry and Pure Pursuit are not magic
 

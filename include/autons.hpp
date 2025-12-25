@@ -19,3 +19,4 @@ void measure_offsets();
 void rightHold();
 void leftHold();
 void leftTwoGoal();
+void skills();
