@@ -52,6 +52,7 @@ void initialize() {
   chassis.initialize();
   ez::as::initialize();
   master.rumble(chassis.drive_imu_calibrated() ? "." : "---");
+  pros::lcd::initialize();
 }
 
 /**
@@ -204,8 +205,15 @@ void ez_template_extras() {
  */
 void opcontrol() {
   chassis.drive_brake_set(MOTOR_BRAKE_COAST);
-
+  static uint32_t lastPrint = 0;
   while (true) {
+    uint32_t now = pros::millis();
+    if (now - lastPrint >= 200) {   // 200 ms
+      lastPrint = now;
+      double frontInch = front.get() / 25.4; 
+      double sideInch = side.get() / 25.4;
+      pros::lcd::print(0, "Side: %f in, Front: %f in", sideInch, frontInch);
+    }
     // Gives you some extras to make EZ-Template ezier
     ez_template_extras();
     chassis.opcontrol_arcade_standard(ez::SPLIT);

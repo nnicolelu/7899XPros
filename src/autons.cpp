@@ -211,6 +211,21 @@ void skills() {
   pros::delay(600);
   chassis.pid_drive_set(78_in, DRIVE_SPEED, true);
   pros::delay(2000);
-  chassis.pid_turn_set(210_deg, TURN_SPEED);
+  chassis.pid_turn_set(250_deg, TURN_SPEED);
+  pros::delay(500);
+  chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
+  pros::delay(300);
+  chassis.pid_turn_set(-180_deg, TURN_SPEED);
+  pros::delay(400);
+  stopPiston.set(true);
+  chassis.pid_drive_set(-14_in, 100, true); // scoring first match loader
+  pros::delay(400);
+  topIntake.move(127);
+  bottomRollers.move(127);
+  topRollers.move(127);
+  matchLoader.set(true);
+  pros::delay(2000);
+  stopPiston.set(false);
+  chassis.pid_drive_set(32_in, 90, true); // second match loader
   chassis.pid_wait();
 }

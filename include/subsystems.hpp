@@ -17,3 +17,5 @@ inline pros::Motor topIntake(-7);
 inline ez::Piston stopPiston('B');
 inline ez::Piston matchLoader('A');
 inline ez::Piston descore('F');
+inline pros::Distance front(1);
+inline pros::Distance side(13);
