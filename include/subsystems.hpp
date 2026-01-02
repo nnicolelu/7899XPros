@@ -14,6 +14,6 @@ inline pros::Motor bottomRollers(14);
 inline pros::Motor topRollers(5);
 inline pros::Motor topIntake(-7);
 
-inline ez::Piston descore('B');
+inline ez::Piston stopPiston('B');
 inline ez::Piston matchLoader('A');
-inline ez::Piston stopPiston('F');
+inline ez::Piston descore('F');
