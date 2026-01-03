@@ -43,6 +43,7 @@ void initialize() {
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
       {"SKILLS!", skills},
+      {"Testing", testing},
       {"Left two goal\n\nLeft side autonomous that gets middle top and top goal", leftTwoGoal},
       {"Left hold\n\nLeft side autonomous with descore arm hold", leftHold},
       {"Right hold\n\nRight side autonomous with descore arm hold", rightHold},
