@@ -43,8 +43,8 @@ void initialize() {
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
       {"SKILLS!", skills},
-      {"Testing", testing},
       {"Left two goal\n\nLeft side autonomous that gets middle top and top goal", leftTwoGoal},
+      {"Testing", testing},
       {"Left hold\n\nLeft side autonomous with descore arm hold", leftHold},
       {"Right hold\n\nRight side autonomous with descore arm hold", rightHold},
   });
@@ -219,9 +219,9 @@ void opcontrol() {
     ez_template_extras();
     chassis.opcontrol_arcade_standard(ez::SPLIT);
     // pneumatics
-    stopPiston.button_toggle(master.get_digital(DIGITAL_Y));
+    descore.button_toggle(master.get_digital(DIGITAL_Y));
     matchLoader.button_toggle(master.get_digital(DIGITAL_DOWN));
-    descore.button_toggle(master.get_digital(DIGITAL_B));
+    stopPiston.button_toggle(master.get_digital(DIGITAL_B));
     // intake logic
     if (master.get_digital(DIGITAL_R1)) { //scoring on the top
       topRollers.move(127);

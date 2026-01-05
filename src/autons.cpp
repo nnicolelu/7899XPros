@@ -165,7 +165,7 @@ void leftTwoGoal() {
 
 void skills() {
   stopPiston.set(false);
-  chassis.pid_drive_set(-30.5, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-32, DRIVE_SPEED, true);
   pros::delay(800);
   chassis.pid_turn_set(90, TURN_SPEED);
   pros::delay(400);
@@ -175,59 +175,90 @@ void skills() {
   chassis.pid_turn_set(43, TURN_SPEED);
   pros::delay(400);
   chassis.pid_drive_set(-16, 80, true); // middle goal
-  pros::delay(700);
+  pros::delay(1100);
   bottomRollers.move(-100);
   topRollers.move(-127);
   topIntake.move(-127);
   pros::delay(400);
   bottomRollers.move(90);
   topRollers.move(45);
-  topIntake.move(-40);
+  topIntake.move(-38);
   pros::delay(3000);
-  chassis.pid_drive_set(65.5_in, DRIVE_SPEED, true);
-  pros::delay(950);
-  matchLoader.set(true);
+  chassis.pid_drive_set(57_in, DRIVE_SPEED, true);
+  pros::delay(1100);
   chassis.pid_turn_set(0_deg, TURN_SPEED);
+  matchLoader.set(true);
   pros::delay(400);
   bottomRollers.move(127);
   topRollers.move(127);
   topIntake.move(127);
-  chassis.pid_drive_set(18_in, 80, true); // getting first match loader
+  chassis.pid_drive_set(18.5_in, 65, true); // getting first match loader
   pros::delay(2500);
-  chassis.pid_drive_set(-10_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-20_in, DRIVE_SPEED, true);
   pros::delay(500);
-  chassis.pid_turn_set(-45_deg, TURN_SPEED);
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
   pros::delay(300);
-  chassis.pid_drive_set(-22_in, DRIVE_SPEED);
-  bottomRollers.move(0);
-  topIntake.move(0);
-  topRollers.move(0);
+  chassis.pid_drive_set(18_in, DRIVE_SPEED);
   matchLoader.set(false);
   pros::delay(500);
   chassis.pid_turn_set(-180_deg, TURN_SPEED);
   pros::delay(600);
-  chassis.pid_drive_set(78_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(82_in, DRIVE_SPEED, true);
+  bottomRollers.move(0);
+  topRollers.move(0);
+  topIntake.move(0);
   pros::delay(2000);
   chassis.pid_turn_set(250_deg, TURN_SPEED);
   pros::delay(500);
-  chassis.pid_drive_set(28_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(35_in, DRIVE_SPEED, true);
   pros::delay(300);
   chassis.pid_turn_set(-180_deg, TURN_SPEED);
   pros::delay(400);
-  stopPiston.set(true);
   chassis.pid_drive_set(-18_in, 127, true); // scoring first match loader
-  pros::delay(400);
+  pros::delay(700);
+  stopPiston.set(true);
   topIntake.move(127);
   bottomRollers.move(127);
   topRollers.move(127);
-  matchLoader.set(true);
   pros::delay(2000);
   stopPiston.set(false);
-  chassis.pid_drive_set(37_in, 70, true); // second match loader
+  matchLoader.set(true);
+  chassis.pid_drive_set(38_in, 65, true); // second match loader
   pros::delay(3000);
   chassis.pid_drive_set(-37_in, 80, true); // scoring second match loader
+  pros::delay(800);
   stopPiston.set(true);
   pros::delay(2000);
+  matchLoader.set(false);
+  chassis.pid_drive_set(18_in, DRIVE_SPEED, true);
+  pros::delay(600);
+  chassis.pid_turn_set(270_deg, TURN_SPEED);
+  pros::delay(500);
+  //replace with code for blue park zone
+  chassis.pid_drive_set(101_in, 100, true); // driving to 3rd goal (switch to use distance sensor)
+  pros::delay(2000);
+  // replace with code for blue park zone
+  chassis.pid_turn_set(-180_deg, TURN_SPEED);
+  pros::delay(600);
+  chassis.pid_drive_set(-24_in, 80, true);
+  pros::delay(900);
+  matchLoader.set(true);
+  chassis.pid_drive_set(37_in, 60, true); // getting 3rd match loader
+  pros::delay(1000);
+  stopPiston.set(false);
+  bottomRollers.move(127);
+  topRollers.move(127);
+  topIntake.move(127);
+  pros::delay(2500);
+  chassis.pid_drive_set(-20_in, DRIVE_SPEED, true);
+  pros::delay(600);
+  chassis.pid_turn_set(270_deg, TURN_SPEED);
+  pros::delay(500);
+  chassis.pid_drive_set(18_in, DRIVE_SPEED, true);
+  pros::delay(500);
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  pros::delay(500):
+  chassis.pid_drive_set(82_in)
   chassis.pid_wait();
 }
 
