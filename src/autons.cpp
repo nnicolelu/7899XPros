@@ -254,11 +254,18 @@ void skills() {
   pros::delay(600);
   chassis.pid_turn_set(270_deg, TURN_SPEED);
   pros::delay(500);
+  matchLoader.set(false);
   chassis.pid_drive_set(18_in, DRIVE_SPEED, true);
   pros::delay(500);
   chassis.pid_turn_set(0_deg, TURN_SPEED);
-  pros::delay(500):
-  chassis.pid_drive_set(82_in)
+  pros::delay(500);
+  chassis.pid_drive_set(82_in, 90, true);
+  pros::delay(2000);
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+  pros::delay(500);
+  chassis.pid_drive_set(16_in, DRIVE_SPEED, true);
+  pros::delay(700);
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
   chassis.pid_wait();
 }
 

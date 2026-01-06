@@ -223,6 +223,15 @@ void opcontrol() {
     matchLoader.button_toggle(master.get_digital(DIGITAL_DOWN));
     stopPiston.button_toggle(master.get_digital(DIGITAL_B));
     // intake logic
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+      bottomRollers.move(90);
+      topRollers.move(45);
+      topIntake.move(-38);
+      pros::delay(3000);
+      bottomRollers.move(0);
+      topRollers.move(0);
+      topIntake.move(0);      
+    }
     if (master.get_digital(DIGITAL_R1)) { //scoring on the top
       topRollers.move(127);
       topIntake.move(127);
