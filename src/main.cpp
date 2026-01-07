@@ -219,9 +219,9 @@ void opcontrol() {
     ez_template_extras();
     chassis.opcontrol_arcade_standard(ez::SPLIT);
     // pneumatics
-    descore.button_toggle(master.get_digital(DIGITAL_Y));
+    descore.button_toggle(master.get_digital(DIGITAL_B));
     matchLoader.button_toggle(master.get_digital(DIGITAL_DOWN));
-    stopPiston.button_toggle(master.get_digital(DIGITAL_B));
+    stopPiston.button_toggle(master.get_digital(DIGITAL_Y));
     // intake logic
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
       bottomRollers.move(90);
