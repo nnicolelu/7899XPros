@@ -176,15 +176,19 @@ void skills() {
   pros::delay(800);
   chassis.pid_drive_set(-10_in, 80, true);
   pros::delay(500);
-  chassis.pid_drive_set(20_in, 50, true);
+  chassis.pid_drive_set(23_in, 50, true);
   pros::delay(800);
   chassis.pid_drive_set(-10_in, 80, true);
   pros::delay(500);
   chassis.pid_drive_set(20_in, 50, true);
   pros::delay(1000);
   chassis.pid_drive_set(-24_in, 50, true);
-  pros::delay(500);
-  /*
+  pros::delay(1600);
+  chassis.pid_drive_set(9_in, 50, true); // finished with clearing park
+  pros::delay(400);
+  bottomRollers.move(0);
+  topRollers.move(0);
+  topIntake.move(0); 
   chassis.pid_drive_set(-32, DRIVE_SPEED, true);
   pros::delay(800);
   chassis.pid_turn_set(90, TURN_SPEED);
@@ -204,6 +208,7 @@ void skills() {
   topRollers.move(45);
   topIntake.move(-38);
   pros::delay(3000);
+  /*
   chassis.pid_drive_set(58_in, DRIVE_SPEED, true);
   pros::delay(1100);
   chassis.pid_turn_set(0_deg, TURN_SPEED);
