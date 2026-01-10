@@ -165,10 +165,30 @@ void leftTwoGoal() {
 
 void skills() {
   stopPiston.set(false);
+  bottomRollers.move(127);
+  topRollers.move(127);
+  topIntake.move(127);
+  chassis.pid_drive_set(40_in, 50, true);
+  pros::delay(1000);
+  chassis.pid_drive_set(-10_in, 80, true);
+  pros::delay(500);
+  chassis.pid_drive_set(20_in, 50, true);
+  pros::delay(800);
+  chassis.pid_drive_set(-10_in, 80, true);
+  pros::delay(500);
+  chassis.pid_drive_set(20_in, 50, true);
+  pros::delay(800);
+  chassis.pid_drive_set(-10_in, 80, true);
+  pros::delay(500);
+  chassis.pid_drive_set(20_in, 50, true);
+  pros::delay(1000);
+  chassis.pid_drive_set(-24_in, 50, true);
+  pros::delay(500);
+  /*
   chassis.pid_drive_set(-32, DRIVE_SPEED, true);
   pros::delay(800);
   chassis.pid_turn_set(90, TURN_SPEED);
-  pros::delay(400);
+  pros::delay(500);
   bottomRollers.move(127);
   chassis.pid_drive_set(24, DRIVE_SPEED, true);
   pros::delay(700);
@@ -196,13 +216,13 @@ void skills() {
   pros::delay(2500);
   chassis.pid_drive_set(-20_in, DRIVE_SPEED, true);
   pros::delay(500);
+  matchLoader.set(false);
   chassis.pid_turn_set(90_deg, TURN_SPEED);
   pros::delay(300);
   bottomRollers.move(0);
   topRollers.move(0);
   topIntake.move(0);
   chassis.pid_drive_set(18.5_in, DRIVE_SPEED);
-  matchLoader.set(false);
   pros::delay(500);
   chassis.pid_turn_set(-180_deg, TURN_SPEED);
   pros::delay(600);
@@ -300,6 +320,7 @@ void skills() {
   chassis.pid_drive_set(32_in, DRIVE_SPEED, true);
   pros::delay(500);
   chassis.pid_turn_set(90_deg, TURN_SPEED);
+  */
   chassis.pid_wait();
 }
 

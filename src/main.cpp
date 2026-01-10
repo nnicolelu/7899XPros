@@ -223,15 +223,6 @@ void opcontrol() {
     matchLoader.button_toggle(master.get_digital(DIGITAL_DOWN));
     stopPiston.button_toggle(master.get_digital(DIGITAL_Y));
     // intake logic
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-      bottomRollers.move(90);
-      topRollers.move(45);
-      topIntake.move(-38);
-      pros::delay(3000);
-      bottomRollers.move(0);
-      topRollers.move(0);
-      topIntake.move(0);      
-    }
     if (master.get_digital(DIGITAL_R1)) { //scoring on the top
       topRollers.move(127);
       topIntake.move(127);
@@ -243,8 +234,8 @@ void opcontrol() {
       }
     }
     else if (master.get_digital(DIGITAL_R2)) {
-      topRollers.move(127);
-      topIntake.move(-127);
+      topRollers.move(40);
+      topIntake.move(-35);
     }
     else if (master.get_digital(DIGITAL_L1)) { // picking up from floor
       bottomRollers.move(127);
@@ -253,8 +244,8 @@ void opcontrol() {
         topIntake.move(127);
       }
       else if (master.get_digital(DIGITAL_R2)) { // scoring on middle top 
-        topRollers.move(127);
-        topIntake.move(127);
+        topRollers.move(40);
+        topIntake.move(-35);
       }
       else {
         topRollers.move(0);
